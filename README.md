@@ -1,4 +1,4 @@
 # We-GoiN-cRAzy-wAtCH-oUT-MFs 
 
 
-Non stop going 
+We fucking going out. 
