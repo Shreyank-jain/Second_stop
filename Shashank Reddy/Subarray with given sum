@@ -1,0 +1,28 @@
+class Solution
+{
+    public:
+    vector<int> subarraySum(int arr[], int n, long long s)
+    {
+     vector<int> solution;      
+     int low=0;
+     int high=0;
+     int sum=arr[0];
+     while(low<n && high<n){
+         if(sum == s){
+            solution.push_back(low+1);
+            solution.push_back(high+1);
+             return solution;
+         }else if(sum < s)
+         {
+              high++;
+            sum+=arr[high];
+           
+         }else {
+            sum-=arr[low];
+            low++;
+         }  
+         }
+         solution.push_back(-1);
+         return solution;     
+    }
+};
