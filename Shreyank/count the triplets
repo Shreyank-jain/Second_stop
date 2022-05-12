@@ -1,0 +1,24 @@
+class Solution{
+public:	
+	
+	int countTriplet(int arr[], int n)
+	{
+	    // Your code goes here
+	    sort(arr,arr+n);
+	    int a ,b,c, count=0,x=0;
+	    for(int i=n-1;i>=0;i--)
+	    {
+	       a=arr[i],b=0,c=i-1;
+	       while(b<c)
+	       {
+	       x=arr[b]+arr[c];
+	       if(x==a)  
+	       {count++;b++,c--;}
+	       else if(x<a) b++;
+	       else c--;
+	        }
+	    }
+	    return count;
+	    
+	}
+};
