@@ -1,0 +1,17 @@
+vector<int> leaders(int a[], int n){
+        // Code here
+        vector<int> v;
+        int max=n-1;
+        v.push_back(a[max]);
+        for(int i=n-2;i>=0;i--)
+        {
+            if(a[i]>=a[max])
+            {
+                v.push_back(a[i]);
+                max=i;
+                
+            }
+        }
+        reverse(v.begin(),v.end());
+        return v;
+    }
