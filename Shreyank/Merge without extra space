@@ -1,0 +1,25 @@
+void merge(long long arr1[], long long arr2[], int m, int n) 
+        { 
+              int a=0,b=0,temp,temp2;
+              while(a<m && b<n)
+              {   
+                  if(arr1[a]>arr2[b])
+                  {
+                      temp=arr1[a];
+                      arr1[a]=arr2[b];
+                      temp2=0;
+                      if(temp>arr2[temp2+1])
+                       {
+                          while (temp2 < n-1  && arr2[temp2+1] < temp)
+                            {
+                                arr2[temp2] = arr2[temp2+1];
+                                temp2++;
+                            }
+                                arr2[temp2] = temp;
+                        }
+                        else
+                           arr2[temp2]=temp;
+                  }
+                    a++;
+              }
+ } 
