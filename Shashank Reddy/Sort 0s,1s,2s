@@ -1,0 +1,18 @@
+ int one=0,two=0,three=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==0){
+            one++;
+        }
+        if(arr[i]==1){
+            two++;
+        }
+    }
+    for(int i=0;i<one;i++){
+        arr[i]=0;
+    }
+    for(int i=one;i<(one+two);i++){
+        arr[i]=1;
+    }
+    for(int i=(one+two);i<n;i++){
+        arr[i]=2;
+    }
