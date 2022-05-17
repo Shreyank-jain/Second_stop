@@ -1,0 +1,11 @@
+long long findMinDiff(vector<long long> a, long long n, long long m){
+            sort(a.begin(),a.end());
+            int max=a[m-1]-a[0], temp;
+            for(int i=1;i<=(n-m);i++)
+            {
+                temp=a[i+m-1]-a[i];
+                if(temp<max)
+                    max=temp;
+            }
+           return max;
+    }
