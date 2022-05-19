@@ -1,0 +1,17 @@
+long long trappingWater(int arr[], int n){
+    long long l[n],r[n];
+    long long ans=0;
+    int leftMax=0,rightMax=0;
+    for(int i=0;i<n;i++){
+        leftMax=max(arr[i],leftMax);
+        l[i]=max(arr[i],leftMax);
+        }
+    for(int i=n-1;i>=0;i--){
+        rightMax=max(arr[i],rightMax);
+        r[i]=max(arr[i],rightMax);
+    }
+    for(int i=0;i<n;i++){
+        ans+= min(l[i],r[i]) - arr[i];
+    }
+    return ans;    
+    }
