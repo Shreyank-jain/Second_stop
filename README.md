@@ -1,4 +1,4 @@
 # We-GoiN-cRAzy-wAtCH-oUT-MFs 
 
 
-We fucking going out. 
+Except SHASHANK We are all fucking going out. 
