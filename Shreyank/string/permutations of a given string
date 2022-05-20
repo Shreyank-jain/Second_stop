@@ -1,0 +1,9 @@
+vector<string>find_permutation(string S)
+		{
+		    vector<string> permutations ;
+            sort(S.begin(),S.end());
+            do{
+                 permutations.push_back(S);
+             }while(next_permutation(S.begin(),S.end()));
+             return permutations;
+		}
