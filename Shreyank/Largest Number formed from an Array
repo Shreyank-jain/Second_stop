@@ -9,3 +9,32 @@ string printLargest(vector<string> &arr) {
     //if(!stoi(arr[0])) return "0";
     return s;
 }
+
+
+----------if long long int is given (s1+s2 doesn't work )------------
+
+bool compare(ll X,ll Y)
+{
+    ll XY=X,YX=Y,revX=0,revY=0;
+    while(X)
+    {
+        revX=revX*10+X%10;
+        X/=10;
+    }
+    while(Y)
+    {
+        revY=revY*10+Y%10;
+        Y/=10;
+    }
+    while(revY)
+    {
+        XY=XY*10+revY%10;
+        revY/=10;
+    }
+    while(revX)
+    {
+        YX=YX*10+revX%10;
+        revX/=10;
+    }
+    return XY>YX;
+}
