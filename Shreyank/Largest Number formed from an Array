@@ -1,0 +1,11 @@
+static bool compare(string s1,string s2){
+        return s1+s2>s2+s1;
+   }
+
+string printLargest(vector<string> &arr) {
+    sort(arr.begin(),arr.end(),compare);
+    string s="";
+    for(auto i:arr) s+=i;
+    //if(!stoi(arr[0])) return "0";
+    return s;
+}
