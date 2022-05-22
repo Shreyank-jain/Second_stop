@@ -1,0 +1,17 @@
+string longestCommonPrefix (string arr[], int N)
+    {
+        if(N==0) return "-1";
+        if(N==1) return arr[0];
+        sort(arr,arr+N);
+    	
+	    int i=0 ,minLength =min(arr[0].size(),arr[N-1].size());
+	    string first=arr[0],last=arr[N-1];
+	    
+        while(i<minLength && first[i]==last[i])
+	        i++;
+	   
+	    string ans= first.substr(0,i);
+	    if(ans.length()!=0)
+	        return ans;
+	    return "-1";
+    }
