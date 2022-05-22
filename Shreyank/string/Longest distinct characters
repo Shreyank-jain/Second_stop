@@ -1,0 +1,24 @@
+int longestSubstrDistinctChars (string S)
+{
+    int arr[26]; //stores index of last occurance of character
+    memset(arr,-1,sizeof(arr));
+    int start=0,end=0,max1=1;
+    for(int i=0;i<S.size();i++)
+    {
+        if(arr[S[i]-'a']==-1)
+            arr[S[i]-'a']=i;
+        else 
+        {
+            if(arr[S[i]-'a']<start)
+                 arr[S[i]-'a']=i;
+            else
+            {
+                start=arr[S[i]-'a']+1;
+                arr[S[i]-'a']=i;
+            }
+        }
+        end++;
+        max1=max(max1,(end-start));
+    }
+    return max1;
+}
