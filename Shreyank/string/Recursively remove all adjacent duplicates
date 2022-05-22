@@ -1,0 +1,22 @@
+string rremove(string s){
+        if (s.size() < 2)
+           return s;
+       // code here
+       string outstr;
+           
+       if (s[0] != s[1])
+           outstr.push_back(s[0]);
+       for (int i=1; i<s.size()-1; i++) {
+           if (s[i-1] != s[i] && s[i] != s[i+1]) {
+               outstr.push_back(s[i]);
+           }
+       }
+       
+       if (s[s.size() - 1] != s[s.size() - 2])
+           outstr.push_back(s[s.size() - 1]);
+       
+       if (s == outstr)
+           return outstr;
+       return rremove(outstr);
+        
+    }
