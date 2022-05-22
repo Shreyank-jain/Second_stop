@@ -1,0 +1,16 @@
+ vector<int> leaders(int a[], int n){
+         vector<int> result;
+        int maxx=a[n-1];
+        result.push_back(maxx);
+        for(int i=n-2;i>=0;i--)
+        {
+            if(maxx<=a[i])
+            {
+                maxx=a[i];
+                result.push_back(maxx);
+            }
+        }
+        
+        reverse(result.begin(),result.end());
+        return result;
+    }
