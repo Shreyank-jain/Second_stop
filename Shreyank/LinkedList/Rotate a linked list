@@ -1,0 +1,14 @@
+Node* rotate(Node* head, int k)
+    {
+        struct Node *a=head;
+        struct Node *b=head;
+        int i=0;
+        while(b->next!=NULL)
+            b=b->next;
+        b->next=head;
+        for(int i=0;i<k-1;i++)
+            a=a->next;
+        head=a->next;
+        a->next=NULL;
+        return head;
+    }
