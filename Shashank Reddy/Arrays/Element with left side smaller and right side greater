@@ -1,0 +1,16 @@
+int findElement(int arr[], int n) {
+    int left[n],right[n],ans;
+        left[0]=arr[0];right[n-1]=arr[n-1];
+        for(int i=1,j=n-2;i<n,j>=0;i++,j--)
+        {
+            
+            left[i]=max(left[i-1],arr[i]);
+            right[j]= min(right[j+1],arr[j]);
+        }
+        for(int i=1;i<n-1;i++)
+        {
+            if(arr[i]>=left[i] && arr[i]<=right[i])
+                   return arr[i];
+        }
+        return -1;
+}
