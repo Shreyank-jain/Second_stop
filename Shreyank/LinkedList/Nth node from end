@@ -1,3 +1,5 @@
+--------reversing a linked list and the traverse ....takes 2 traversal ------------------
+
 int getNthFromLast(Node *head, int n)
 {
         if(head==NULL) return -1;
@@ -20,4 +22,20 @@ int getNthFromLast(Node *head, int n)
         }
         return prev->data;
         
+}
+
+--------------Efficient solution , no need of reversing a LL---------------
+int getNthFromLast(Node *head, int n)
+{
+        struct Node* p = head;
+        struct Node* f = head;
+        for(int i=1; i<=n-1; i++){
+            f = f->next;
+            if(f == NULL) return -1;
+        }
+        while(f->next != NULL){
+            p = p->next;
+            f = f->next;
+        }
+        return p->data;
 }
