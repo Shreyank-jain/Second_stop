@@ -1,0 +1,15 @@
+int getMiddle(Node *head)
+    {
+        if(head==NULL) return 0;
+        if(head->next==NULL) return head->data;
+        struct Node *b=head->next;
+        while(b->next!=NULL)
+        {
+            if(b->next->next==NULL)
+                return head->next->data;
+                
+            b = b->next->next;
+            head=head->next;
+        }
+        return head->next->data;
+    }
