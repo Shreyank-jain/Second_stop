@@ -1,1 +1,1 @@
-completed strings moving onto Linked list
+about to finish Linked list , will start Hashmaps once it finishes Yoyo!
