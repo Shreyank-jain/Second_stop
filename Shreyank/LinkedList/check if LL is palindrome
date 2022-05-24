@@ -1,0 +1,42 @@
+bool isPalindrome(Node *head)
+    {
+         if(head == NULL)
+       return false;
+       
+       Node *slow,*fast;
+       slow = head;
+       fast = head->next;
+       //find mid
+       while(fast and fast->next)
+       {
+           slow = slow->next;
+           fast = fast->next->next;
+       }
+       
+       //reverse list
+       Node *current,*prev,*nxt;
+       
+       current = slow->next;
+       prev = nxt = NULL;
+       
+       while(current)
+       {
+           nxt = current->next;
+           current->next = prev;
+           prev = current;
+           current = nxt;
+       }
+       
+       slow = head;
+       //check palindrome or not
+       while(prev)
+       {
+           if(slow->data != prev->data)
+           return false;
+           
+           slow = slow->next;
+           prev = prev->next;
+       }
+       
+       return true;
+   }
