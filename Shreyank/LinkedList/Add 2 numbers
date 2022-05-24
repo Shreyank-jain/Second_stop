@@ -1,0 +1,50 @@
+struct Node *ReverseList(struct Node *current){
+       
+       struct Node *prev = nullptr,*after = nullptr;
+       
+       while(current){
+           
+           after = current->next;
+           current->next = prev;
+           prev = current;
+           current = after;
+       }
+       
+       return prev;
+   }
+   //Function to add two numbers represented by linked list.
+   
+   struct Node* addTwoLists(struct Node* first, struct Node* second)
+   {
+       // code here
+       struct Node *l1 = ReverseList(first);
+       struct Node *l2 = ReverseList(second);
+       struct Node *dummy = new Node(-1);
+       struct Node *d = dummy;
+       
+       int carry = 0,sum;
+       
+       while(l1 != nullptr || l2 != nullptr){
+           
+           int a = (l1 != nullptr) ? l1->data : 0;
+           int b = (l2 != nullptr) ? l2->data : 0;
+           
+           sum = a + b + carry;
+           carry = sum / 10;
+           
+           d->next = new Node(sum % 10);
+           d = d->next;
+           
+           if(l1 != nullptr)
+           l1 = l1->next;
+           
+           if(l2 != nullptr)
+           l2 = l2->next;
+           
+       }
+       
+       if(carry > 0)
+       d->next = new Node(carry);
+       
+       return ReverseList(dummy->next);
+   }
