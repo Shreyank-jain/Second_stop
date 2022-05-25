@@ -1,0 +1,7 @@
+void deleteNode(Node *del)
+    {
+        Node* temp=del->next->next;
+       del->data=del->next->data;
+       delete del->next;
+       del->next=temp;    
+    }
