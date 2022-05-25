@@ -8,7 +8,6 @@ void MyQueue:: push(int x)
        rear=temp;
 }
 
-//Function to pop front element from the queue.
 int MyQueue :: pop()
 {
     if(!front) return -1;
