@@ -1,0 +1,22 @@
+void MyStack ::push(int x) 
+{
+    StackNode* temp = new StackNode(x);
+    if(!top)
+       {   
+            top= temp;
+            temp->next = NULL;
+       }
+    else
+        temp->next=top;
+    top=temp;
+}
+
+int MyStack ::pop() 
+{
+    if(!top) return -1;
+    StackNode* temp2 = top;
+    int ans = top->data;
+    top=top->next;
+    delete temp2;
+    return ans;  
+}
