@@ -1,0 +1,20 @@
+void MyQueue:: push(int x)
+{
+       QueueNode* temp = new QueueNode(x);
+       if(!front)
+            front = temp;
+       else
+            rear->next=temp;
+       rear=temp;
+}
+
+//Function to pop front element from the queue.
+int MyQueue :: pop()
+{
+    if(!front) return -1;
+    QueueNode* temp2 = front;
+    int ans = front->data;
+    front = front->next;
+    delete temp2;
+    return ans;
+}
