@@ -1,0 +1,13 @@
+int minIndexChar(string str, string patt)
+    {
+        unordered_map<int ,int> mp;
+        int min=-1;
+        for(int i=0;i<patt.size();i++)
+            mp[patt[i]-'a']++;
+        for(int i=0;i<str.size();i++)
+            if(mp[str[i]-'a'])
+            {
+                 return i;
+            }
+            return -1;
+    }
