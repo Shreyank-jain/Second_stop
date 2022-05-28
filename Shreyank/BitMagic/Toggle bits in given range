@@ -1,0 +1,32 @@
+-----------for indian companies----------------
+
+int toggleBits(int N , int L , int R) {
+        int ans=N,power;;
+        L=L-1;R=R-1;
+        while(L<=R)
+        {
+            power=pow(2,L);
+            if((N/power)%2==0) 
+            {
+                ans+=power;
+                L++;
+                continue;
+            }
+            ans-=power;
+            L++;
+        }
+      return ans; 
+      
+-------- for international offers--------------
+
+int toggleBits(int N , int L , int R) {
+    for(int i=L;i<=R;i++){
+            N=(N^(1<<(i-1)));
+        }
+        return N;
+    }
+ -----------for FAANG --------------------------
+int toggleBits(int N , int L , int R) {
+    int a = ((1 << R)-1) ^ ((1 << L-1)-1);
+       return a^N;
+    }
