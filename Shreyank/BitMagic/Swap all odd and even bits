@@ -1,0 +1,10 @@
+unsigned int swapBits(unsigned int n)
+    {
+        return  ((n&0x55555555)<<1)  |   ((n&0xAAAAAAAA)>>1);
+    }
+
+----------------------------------
+0x55555555 = 01010101
+0xAAAAAAAA = 10101010
+0xFFFFFFFF = 11111111
+0x0000ffff = 00001111
