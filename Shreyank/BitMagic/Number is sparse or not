@@ -1,0 +1,14 @@
+class Solution
+{
+    //Function to check if the number is sparse or not.
+    public static boolean isSparse(int n)
+    {
+        // Your code here
+        // if((n&0x55555555)||(n&0xAAAAAAAA)==(0x00000000)) return true;
+        // else return false;
+        if(((n<<1)&n)==0) return true;
+        else return false;
+    }
+    
+}
+// by msreddy_72! i am so proud about myself!
