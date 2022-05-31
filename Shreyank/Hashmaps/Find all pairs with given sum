@@ -1,0 +1,16 @@
+vector<pair<int,int>> allPairs(int A[], int B[], int N, int M, int X)
+    {
+        unordered_map<int,int> mp;
+        sort(A,A+N);
+        vector<pair<int,int>> v;
+        int diff;
+        for(int i=0;i<M;i++)
+            mp[B[i]]=1;
+        for(int i=0;i<N;i++)
+        {
+            diff=X-A[i];
+            if(mp[diff])  v.push_back(make_pair(A[i],diff));
+        }
+        return v;
+    }
+};
