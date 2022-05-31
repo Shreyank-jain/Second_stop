@@ -1,1 +1,1 @@
-finished Linked list , started with Hashmaps Yoyo!!
+Done with Hashmaps , started Stacks and Queue u procrastinators!!
