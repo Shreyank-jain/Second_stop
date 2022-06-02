@@ -1,4 +1,4 @@
-# We-GoiN-cRAzy-wAtCH-oUT-MFs 
+# We-GoiN-cRAzy-wAtCH-oUT 
 
 
 We are fucking going out. 
