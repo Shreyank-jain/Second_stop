@@ -1,0 +1,29 @@
+class Solution {
+    int countTriplet(int arr[], int n) {
+        // code here
+        Arrays.sort(arr);
+        int ans=0;
+        for(int i=n-1;i>=2;i--)
+	    {
+	        int p1=0;
+	        int p2=i-1;
+	        while(p1<p2)
+	        {
+	            int sum=arr[p1]+arr[p2];
+	            if(sum==arr[i])
+	            {
+	                ans++;p1++;p2--;
+	            }
+	            else if(sum>arr[i])
+	            {
+	                p2--;
+	            }
+	            else
+	            {
+	                p1++;
+	            }
+	        }
+	    }
+	    return ans;
+    }
+}
