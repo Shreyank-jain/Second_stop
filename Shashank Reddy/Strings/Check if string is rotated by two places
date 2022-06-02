@@ -1,0 +1,23 @@
+bool isRotated(string str1, string str2)
+    {
+        // Your code here
+        string str11, str12;
+        string temp = str1;
+        rotateAC(str1, 2);
+        str11 = str1;
+        rotateC(temp, 2);
+        str12 = temp;
+        if (str11 == str2 || str12 == str2) {
+            return 1;
+        }
+        else return 0;
+
+    }
+    void rotateAC(string &str, int d) {
+        reverse(str.begin(), str.begin() + d);
+        reverse(str.begin() + d, str.end());
+        reverse(str.begin(), str.end());
+    }
+    void rotateC(string &str, int d) {
+        rotateAC(str, str.length() - d);
+    }
