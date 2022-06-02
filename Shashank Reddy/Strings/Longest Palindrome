@@ -1,0 +1,30 @@
+ string longestPalin(string S) {
+        if (S.length() == 1) return S;
+        int start = 0;
+        int end = 0;
+        int length;
+        for (int i = 0; i < S.length(); i++) {
+            int len1 = middle(S, i, i);
+            int len2 = middle(S, i, i + 1);
+            int len = max(len1, len2);
+            if (len > end - start) {
+                start = i - ((len - 1) / 2);
+                end = i + (len / 2);
+            }
+            length = len;
+        }
+        if (length == 0) {
+            string ans;
+            ans = S[0];
+            return ans;
+        }
+        return S.substr(start, end);
+    }
+    int middle(string s, int left, int right) {
+        if (s.length() == 0 || left > right) return 0;
+        while (left >= 0 && right < s.length() && s.at(left) == s.at(right)) {
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
