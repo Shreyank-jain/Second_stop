@@ -1,0 +1,22 @@
+ string removeDuplicates(string s) {
+        stack<int> stack;
+		stack.push(s[0]);
+		for (int i = 1; i < s.length(); i++) {
+			if (stack.empty())
+			{
+				stack.push(s[i]);
+			}
+			else if (stack.top() == s[i])
+			{
+				stack.pop();
+			}
+			else stack.push(s[i]);
+		}
+		string ans; 
+		while (stack.size()>0) {
+			ans.push_back(stack.top());
+				stack.pop();			
+			}
+		reverse(ans.begin(), ans.end());
+		return ans;
+    }
