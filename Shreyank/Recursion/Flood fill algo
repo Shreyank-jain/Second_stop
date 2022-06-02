@@ -1,3 +1,5 @@
+-------------using Queue ------------------------------
+
 void floodFill(vector<vector<int>> &K,int x,int y,int k,int n,int  m)
 {
     queue<pair<int,int>> q;
@@ -25,3 +27,21 @@ void floodFill(vector<vector<int>> &K,int x,int y,int k,int n,int  m)
         
     }
 }
+
+--------------------Using Recursion ----------------------------
+void dfs(vector<vector<int>>& image, int sr, int sc, int newC, int oldC)
+   {
+       if(sr<0 || sr>=image.size() || sc<0 || sc>=image[0].size() || image[sr][sc]!=oldC || image[sr][sc]==newC )
+           return;
+       image[sr][sc] = newC;
+       dfs(image,sr+1,sc,newC,oldC);
+       dfs(image,sr-1,sc,newC,oldC);
+       dfs(image,sr,sc+1,newC,oldC);
+       dfs(image,sr,sc-1,newC,oldC);
+       
+   }
+   
+   vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+       dfs(image,sr,sc,newColor,image[sr][sc]);
+       return image;
+   }
