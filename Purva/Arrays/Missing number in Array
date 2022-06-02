@@ -1,0 +1,42 @@
+class Solution {
+    int MissingNumber(int array[], int n) {
+        // Your Code Here
+        int[] dummy = new int[n];
+        int ans=0;
+        for(int i=0;i<n;i++)
+        {
+            dummy[i]=0;
+        }
+        for(int i=0;i<n-1;i++)
+        {
+            dummy[array[i]-1]=-1;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(dummy[i]==0)
+            {
+                ans= i+1;
+            }
+        }
+        return ans;
+    }
+}
+
+----------------------------------------------------------------------------------------
+OR
+----------------------------------------------------------------------------------------
+
+class Solution {
+    int MissingNumber(int array[], int n) {
+        // Your Code Here
+        int actualSum=n;
+        int sum=0;
+        for(int i=1;i<n;i++)
+        {
+            sum=sum+array[i-1];
+            actualSum=actualSum+i;
+            
+        }
+        return actualSum-sum;
+    }
+}
