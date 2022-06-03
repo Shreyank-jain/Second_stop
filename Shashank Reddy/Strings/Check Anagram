@@ -1,0 +1,13 @@
+bool isAnagram(string a, string b){
+       int arrA[26]={0};
+       for(int i=0;i<a.length();i++){
+           arrA[a[i]-'a']++;
+       }
+       for(int i=0;i<b.length();i++){
+           arrA[b[i]-'a']--;
+       }
+       for(int i=0;i<26;i++){
+           if(arrA[i] != 0) return 0;
+       }
+       return 1;
+    }
