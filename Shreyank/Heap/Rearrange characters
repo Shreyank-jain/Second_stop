@@ -1,1 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+    ios_base::sync_with_stdio(false) ;
+    cin.tie(NULL);
+	int tc;
+	cin>>tc ;
+	
+	while(tc--)
+	{
+	string s;
+	    cin>>s;
+	    unordered_map<char,int> hash;
+	    for(int i=0;i<26;i++)  hash['a'+i]=0;
+	    for(int i=0;i<s.length();i++)
+	           hash[s[i]]++;
+	    int len=s.length();
+	    int maxO = (len-1)/2 +1 ;
+	    int maxE = (len)/2 ;
+	    int flag=1;
+	    for(int i=0;i<len;i++)
+	    {
+	        if(len%2==1)
+	        {
+	            if(hash[s[i]]>maxO)
+	            {
+	                flag=0;
+	                cout<<0<<endl ;
+	                break ;
+	            }
+	        } 
+	        else
+	        {
+	            if(hash[s[i]]>maxE)
+	            {
+	                flag=0;
+	                cout<<"0"<<endl ;
+	                break ;
+	            }
+	        }
+	    }   
+	    if(flag)
+	       cout<<"1"<<endl;
+	}
 
+	
+	return 0;
+}
