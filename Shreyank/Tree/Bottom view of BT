@@ -1,0 +1,24 @@
+vector <int> bottomView(Node *root) {
+        vector<int> ans;
+        if(root==NULL) return ans;
+        map<int,int> mp;
+        queue<pair<Node* ,int>> q;
+        q.push(make_pair(root,0));
+        while(!q.empty())
+        {
+            pair<Node* ,int> p =q.front();
+            q.pop();
+            struct Node* cur=p.first;
+            int level =p.second;
+            mp[level]=cur->data;
+            if(cur->left!=NULL)  q.push(make_pair(cur->left,level-1));
+            if(cur->right!=NULL) q.push(make_pair(cur->right,level+1));
+            
+        }
+        map<int,int>::iterator it;
+        for(it=mp.begin();it!=mp.end();it++)
+        {
+            ans.push_back(it->second);
+        }
+        return ans;
+    }
