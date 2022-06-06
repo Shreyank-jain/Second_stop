@@ -18,12 +18,10 @@ vector<int> ans;
     {
        if (pre_index == A.size() || A[pre_index] == -1) {
         pre_index += 1;
-        pre_index %= A.size();
         return NULL; 
     } 
     Node *root = new Node(A[pre_index]); 
     pre_index += 1;
-    //pre_index %= Arr.size();
     root->left = deSerialize(A); 
     root->right = deSerialize(A); 
     return root;
