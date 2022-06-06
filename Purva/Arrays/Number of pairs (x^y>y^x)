@@ -1,0 +1,57 @@
+class Solution
+{
+    
+    // x[], y[]: input array elements
+    // M, N: size of arrays x[] and y[] respectively
+    //Function to count number of pairs such that x^y is greater than y^x.
+    static long countPairs(int x[], int y[], int M, int N)
+    {
+        long count=0;
+        long numberOfyException[]=new long[5];
+        for(int i=0;i<N;i++)
+        {
+            if(y[i]<5) numberOfyException[y[i]]++;
+        }
+        Arrays.sort(y);
+        for(int i=0;i<M;i++)
+        {
+            count+=countForEachX(x[i],y,numberOfyException,N);
+        }
+        return count;
+    }
+    static long countForEachX(int x,int y[],long numberOfyException[],int N)
+    {
+        int eachCount;
+        if(x==0)
+            return 0;
+        
+        if(x==1)
+        {
+            return numberOfyException[0];
+        }
+        
+        int index=Arrays.binarySearch(y,x);
+        if(index<0)
+        {
+            eachCount=(y.length-(Math.abs(index)-1));
+        }
+        else
+        {
+            while(index<N && y[index]==x)
+                index++;
+            eachCount=y.length-index;
+        }
+        
+        eachCount+=numberOfyException[0]+numberOfyException[1];
+        
+        if(x==2)
+            eachCount-=numberOfyException[3]+numberOfyException[4];
+            
+        if(x==3)
+        {
+            eachCount+=numberOfyException[2];
+        }
+        
+        return eachCount;
+    }
+}
