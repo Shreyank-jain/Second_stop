@@ -1,0 +1,19 @@
+int helper(Node* root,int &ans)
+    {
+        if(!root) return 0;
+        if(!root->left && !root->data) return 1;
+        
+        int lheight = helper(root->left,ans);
+        int rheight = helper(root->right,ans);
+        
+    
+        int temp = 1+lheight+rheight;
+        if(temp>ans) ans=temp;
+        return 1+max(lheight,rheight);
+        
+    }
+    int diameter(Node* root) {
+        int ans=INT_MIN;
+        helper(root,ans);
+        return ans;
+    }
