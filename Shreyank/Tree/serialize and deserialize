@@ -1,0 +1,30 @@
+vector<int> ans;
+    vector<int> serialize(Node *root) 
+    {
+       if(root==NULL) 
+       { 
+           ans.push_back(-1);
+           return ans;
+       }
+       ans.push_back(root->data);
+       serialize(root->left);
+       serialize(root->right);
+       return ans;
+    }
+    
+    //Function to deserialize a list and construct the tree.
+    int pre_index = 0;
+    Node * deSerialize(vector<int> &A)
+    {
+       if (pre_index == A.size() || A[pre_index] == -1) {
+        pre_index += 1;
+        pre_index %= A.size();
+        return NULL; 
+    } 
+    Node *root = new Node(A[pre_index]); 
+    pre_index += 1;
+    //pre_index %= Arr.size();
+    root->left = deSerialize(A); 
+    root->right = deSerialize(A); 
+    return root;
+    }
