@@ -1,0 +1,23 @@
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+        // Your code here
+        int currLeader=arr[n-1];
+        ArrayList<Integer>ans=new ArrayList<>();
+        for(int i=n-1;i>=0;i--)
+        {
+            if(arr[i]>currLeader || arr[i]==currLeader)
+            {
+                ans.add(arr[i]);
+                currLeader=arr[i];
+            }
+           
+        }
+        ArrayList<Integer>invertedAns=new ArrayList<>();
+        for(int i=ans.size()-1;i>=0;i--)
+        {
+            invertedAns.add(ans.get(i));
+        }
+        return(invertedAns);
+    }
+}
