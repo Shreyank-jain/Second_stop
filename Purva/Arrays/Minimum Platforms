@@ -1,0 +1,25 @@
+static int findPlatform(int arr[], int dep[], int n)
+    {
+        // add your code here
+        Arrays.sort(arr);
+        Arrays.sort(dep);
+        int maxCount=1;
+    	for(int i=0;i<n;i++)
+    	{
+    	    int currCount=1;
+    	    for(int j=0;j<i;j++)
+    	    {
+    	        if(dep[j]>=arr[i])
+    	        {
+    	            currCount++;
+    	        }
+    	    }
+    	    if(currCount>maxCount)
+    	    {
+    	        maxCount=currCount;
+    	    }
+    	}
+        return maxCount;
+    }
+    
+}
