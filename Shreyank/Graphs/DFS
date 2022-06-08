@@ -1,0 +1,17 @@
+vector<int> ans;
+    void helper(vector<int> adj[],int cur,vector<bool> &visited,vector<int> &ans)
+    {
+        ans.push_back(cur);
+        visited[cur] = true;
+        for(auto x:adj[cur])
+            if(!visited[x])
+                helper(adj,x,visited,ans);
+    }
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        vector<bool> visited(V,false);
+        for(int i=0;i<V;i++){
+            if(!visited[i]) 
+                helper(adj,i,visited,ans);
+         }
+                return ans;
+    }
