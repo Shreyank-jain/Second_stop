@@ -1,0 +1,63 @@
+--------BFS approach -----------------
+
+bool isCyclic(int V, vector<int> adj[]) {
+        int inDegree[V]={0};
+        
+        for(int i=0; i<V; i++){
+            for(int it: adj[i]){
+                inDegree[it]++;
+            }
+        }
+        
+        queue<int> q;
+        for(int i=0; i<V; i++){
+            if(inDegree[i]==0) q.push(i);
+        }
+        
+        int cnt=0;
+        while(!q.empty())
+        {
+            int v = q.front();
+            q.pop();
+            cnt++;
+            for(int it: adj[v]){
+                if(--inDegree[it]==0)
+                    q.push(it);
+            }
+        }
+        
+        if(cnt==V)
+            return 0;
+        else
+            return 1;
+    }
+    
+    ---------------DFS approach --------------------
+    
+    bool DFSRec(vector<int> adj[],int src,bool visited[], bool recSt[]){
+        visited[src] =true;
+        recSt[src] =true;
+        for(int u: adj[src]){
+            if(!visited[u] && DFSRec(adj,u,visited,recSt)) return true;
+            else if (recSt[u] == true) return true;
+        }
+        recSt[src] = false;
+        return false;
+        
+    }
+    bool isCyclic(int V, vector<int> adj[]) {
+        // code here
+        bool visited[V];
+        bool recSt[V];
+        for(int i =0; i< V ; i++){
+            visited[i] =false; 
+            recSt[i] =false;
+        }
+        for(int i=0;i<V;i++){
+            if(!visited[i]){
+                if(DFSRec(adj,i,visited,recSt)) return true;
+                
+            }
+        }
+        return false;
+        }
