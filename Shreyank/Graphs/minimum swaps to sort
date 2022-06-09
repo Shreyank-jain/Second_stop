@@ -1,0 +1,18 @@
+int minSwaps(vector<int>&nums)
+	{
+	vector<pair<int, int>> vp;
+    int n = nums.size();
+    for(int i=0; i<n; i++)
+        vp.push_back({nums[i], i});
+    sort(vp.begin(), vp.end());
+    int swaps = 0;
+    for(int i=0; i<n; i++) {
+        int j = vp[i].second;
+        while(i != j) {
+            swap(vp[i], vp[j]);
+            j = vp[i].second;
+            swaps++;
+        }
+    }
+    return swaps;
+	}
