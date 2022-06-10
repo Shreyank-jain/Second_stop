@@ -1,0 +1,33 @@
+  Node* segregate(Node *head) {
+        // Add code here
+        int zero=0,one=0,two=0;
+        Node* fuck = head;
+        while(fuck!=NULL){
+            if(fuck->data == 0){
+                zero++;
+            }else if(fuck->data == 1){
+                one++;
+            }
+            else{
+                two++;
+            }
+            fuck = fuck->next;
+        }
+        fuck=head;
+        while(fuck!=NULL && zero>0){
+            fuck->data=0;
+            fuck=fuck->next;
+            zero--;
+        }
+        while(fuck!=NULL && one>0){
+            fuck->data=1;
+            fuck=fuck->next;
+            one--;
+        }
+        while(fuck!=NULL && two>0){
+            fuck->data=2;
+            fuck=fuck->next;
+            two--;
+        }
+        return head;
+    }
