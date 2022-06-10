@@ -1,0 +1,40 @@
+class Solution{
+    public:
+    int rowN[4]={-1,1,0,0};
+    int colN[4]={0,0,1,-1};
+    int minimumCostPath(vector<vector<int>>& graph)  {
+        int n= graph[0].size();
+        int **dist=new int*[n];
+         for(int i=0;i<n;i++)
+        {
+            dist[i]=new int[n];
+            for(int j=0;j<n;j++)
+            {
+                dist[i][j]=INT_MAX;
+            }
+        }
+        queue<pair<int,int>> q;
+    dist[0][0]=graph[0][0];
+    q.push({0,0});
+    while(!q.empty())
+    {
+        pair<int,int> p=q.front();
+        int a=p.first;
+        int b=p.second;
+        q.pop();
+        for(int i=0;i<4;i++)
+        {
+            int x=a+rowN[i];
+            int y=b+colN[i];
+            
+            if(x>=0 && x<n && y>=0 && y<n && dist[x][y]>dist[a][b]+graph[x][y])
+            {
+                dist[x][y]=dist[a][b]+graph[x][y];
+                q.push({x,y});
+            }
+        }
+        
+    }
+    return dist[n-1][n-1];
+    }
+};
