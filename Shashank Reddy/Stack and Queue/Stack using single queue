@@ -1,0 +1,25 @@
+void QueueStack :: push(int x)
+{
+    // Your Code
+    q1.push(x);
+    int w=0;
+    if(q1.size()>1){
+        w=q1.size()-1;
+        while(w>0){
+            q1.push(q1.front());
+            q1.pop();
+            w--;
+        }
+    }
+}
+
+//Function to pop an element from stack using two queues. 
+int QueueStack :: pop()
+{
+    if(q1.empty() == false){
+    int n = q1.front();
+    q1.pop();
+    return n;
+    }
+    return -1;   
+}
