@@ -1,0 +1,21 @@
+int Min=0;
+       int getMin(){
+           if(s.empty()) return -1;
+           return s.top();
+       }
+       
+       int pop(){
+           if(s.empty()) return -1;
+           s.pop();
+           int k=s.top();
+           s.pop();
+           if(!s.empty()) Min = s.top();
+           return k;
+       }
+       
+       void push(int x){
+           if(s.empty()) Min=INT_MAX;
+           Min=min(x,Min);
+           s.push(x);
+           s.push(min(s.top(),Min));
+       }
