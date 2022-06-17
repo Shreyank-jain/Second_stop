@@ -1,0 +1,31 @@
+void bfs(Node* root) {
+    Node* curr = root;
+    queue<Node*> q;
+    if (root == NULL) return;
+    q.push(curr);
+    while (!q.empty()) {
+        curr = q.front();
+        cout << curr->data << " ";
+        q.pop();
+
+       if (curr->left) q.push(curr->left);
+       if(curr->right)  q.push(curr->right);
+    }
+}
+
+____________________________________________________________
+
+void dfs(Node* root) {
+    Node* trav = root;
+    stack<Node*> st;
+    if (trav == NULL)
+        return;
+    st.push(trav);
+    while (!st.empty()) {
+        Node* current = st.top();
+        cout << current->data << " ";
+        st.pop();
+        if (current->right) st.push(current->right);
+        if(current->left) st.push(current->left);
+    } 
+}
