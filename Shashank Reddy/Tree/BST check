@@ -1,0 +1,18 @@
+ int prev=INT_MIN;
+    void fun(Node* root,bool &ans)
+    {
+        if(!root) return;
+        fun(root->left,ans);
+        if(prev>root->data)
+            ans=false;
+        else
+            prev=root->data;
+        fun(root->right,ans);
+        return;
+    }
+    bool isBST(Node* root) 
+    {
+        bool ans = true;
+        fun(root,ans);
+        return ans;
+    }
