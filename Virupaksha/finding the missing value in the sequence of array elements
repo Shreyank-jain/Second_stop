@@ -1,0 +1,24 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int n,arr[n-1],s=0;
+    cout<<"Enter the size of array ";
+    cin>>n;
+    cout<<"Enter the "<<n-1<<" array elements ";
+    for(int i=0;i<n-1;i++)
+    {
+        cin>>arr[i];
+        s=s+arr[i];
+    }
+    int t=(n*(n+1))/2;
+
+    cout<< "Missing value is "<<t-s;
+   
+
+    
+
+    return 0;
+}
