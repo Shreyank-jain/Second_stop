@@ -1,0 +1,19 @@
+bool isSymmetric(struct Node* root)
+    {
+	    // Code here
+	            if(root == NULL) return true;
+
+	    bool flag = true;
+	    flag = fuck(root->left,root->right);
+	    return flag;
+    }
+    
+    bool fuck(Node* l, Node* r){
+        if(l==NULL && r==NULL) return true;
+        if(l!=NULL && r!=NULL){
+        return (l->data == r->data) &&
+            fuck(l->left,r->right) &&
+            fuck(l->right,r->left);
+        }
+        return false;
+    }
