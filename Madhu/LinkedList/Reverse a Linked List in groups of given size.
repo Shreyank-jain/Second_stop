@@ -1,0 +1,19 @@
+class Solution
+{
+    public static Node reverse(Node node, int k)
+    {
+          Node first= node;
+          Node trav= node;
+          Node prev=null;
+          for(int i=0;i<k && first!=null;i++)
+          {
+              Node temp=first.next;
+              first.next=prev;
+              prev=first;
+              first= temp;
+          }
+          if(first!=null)
+              trav.next=reverse(first,k);
+          return prev;
+    }
+}
