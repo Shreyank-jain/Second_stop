@@ -1,0 +1,22 @@
+class Solution
+{
+    public Node rotate(Node head, int k) 
+    {
+        Node front = head;
+        Node last= head;
+        
+        while(last.next!=null)
+        {
+            last=last.next;
+        }
+        while(k-->0)
+        {
+            Node temp = front;
+            front = front.next;
+            temp.next=null;
+            last.next=temp;
+            last=last.next;
+        }
+        return front;
+    }
+}
