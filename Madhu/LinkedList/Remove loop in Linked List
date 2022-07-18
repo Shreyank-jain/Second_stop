@@ -1,0 +1,29 @@
+if(head==null || head.next==null) return;
+      Node fast= head;
+      Node slow= head;
+      while(fast.next!=null)
+      {
+          slow=slow.next;
+          fast=fast.next.next;
+          if(fast==null)
+          return;
+          if(slow==fast)
+          {
+              slow=head;
+              if(fast==head)
+              {
+                  while(fast.next!=head)
+                      fast=fast.next;
+              }
+              else{
+                  while(slow.next!=fast.next)
+                  {
+                      slow=slow.next;
+                      fast=fast.next;
+                  }
+                   
+              }
+              fast.next=null;
+              return;
+          }
+      }
