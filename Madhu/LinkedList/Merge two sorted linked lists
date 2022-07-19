@@ -1,0 +1,46 @@
+class LinkedList
+{
+    //Function to merge two sorted linked list.
+    Node sortedMerge(Node head1, Node head2) {
+     // This is a "method-only" submission. 
+     if(head1==null) return head2;
+     if(head2==null) return head1;
+     if(head1.data<head2.data)
+     {
+         head1.next= sortedMerge(head1.next,head2);
+         return head1;
+     }
+     else
+     {
+         head2.next=sortedMerge(head1,head2.next);
+         return head2;
+     }
+     // You only need to complete this methodh
+    // Node temp= head1;
+    // Node mainh= head1;
+    // Node temp2= null;
+    // if(head2.data<head1.data)
+    //     mainh=head1;
+    // else mainh=head2;
+    // while(head1.next!=null || head2.next !=null){
+    // if(head2.data<head1.data)
+    // {
+    //     temp= head2.next;
+    //     head2.next=head1;
+    //     head2=temp;
+    //     head1=head1.next;
+        
+        
+    // }
+    // if(head2.data>=head2.data)
+    // {
+    //     temp=head2.next;
+    //     head2.next=head1.next;
+    //     head1.next=head2;
+    //     head2=temp;
+    // }
+    // }return mainh;
+     
+     
+   } 
+}
