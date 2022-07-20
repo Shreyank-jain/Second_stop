@@ -1,0 +1,21 @@
+-----------------KRAZ SOL888888888====================
+FIRST APPROACH
+
+boolean isPalindrome(Node head) 
+   {
+       int sum=0,m,a=0;
+       Node p=head;
+       while(p!=null){
+           sum=sum*10+p.data;
+           p=p.next;
+       }
+       m=sum;
+       while(sum>0){
+           a=a*10+sum%10;
+           sum=sum/10;
+       }
+       if(m==a){
+           return true;
+       }
+       return false;
+       SECONG APPREOACH
