@@ -19,3 +19,50 @@ boolean isPalindrome(Node head)
        }
        return false;
        SECONG APPREOACH
+       class Solution
+{
+    //Function to check whether the list is palindrome.
+
+   //Function to check whether the list is palindrome.
+   
+    public static Node reverseLL(Node node)
+        {
+            Node prev= null;
+            Node curr=node;
+            while(curr!=null)
+            {
+                Node temp=curr.next;
+                curr.next=prev;
+                prev=curr;
+                curr=temp;
+            }
+            return prev;
+        }
+        public static Node mid(Node head)
+        {
+            Node s=head;
+            Node f=head;
+            while(f!=null && f.next!=null)
+            {
+                s=s.next;
+                f=f.next.next;
+            }
+            return s;
+        }
+    boolean isPalindrome(Node head) 
+    {
+        //Your code her
+        Node m=mid(head);
+        Node r=reverseLL(m);
+        
+        while(r!=null)
+        {
+            if(r.data!=head.data) return false;
+            r=r.next;
+            head=head.next;
+        }
+        return true;
+    }    
+}
+
+       
