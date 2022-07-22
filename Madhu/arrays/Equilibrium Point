@@ -1,0 +1,48 @@
+class Solution {
+
+    
+    // a: input array
+    // n: size of array
+    // Function to find equilibrium point in the array.
+    // public static int equilibriumPoint(long arr[], int n) {
+
+    //     // Your code here
+    //     if(n==1) return 1;
+    //     int f=0, l = n-1,c=0;
+    //     long fs=arr[f];
+    //     long ls=arr[l];
+    //     for(int i =0;i<n;i++)
+    //     {
+    //         if(c<n)
+    //         {
+    //         if(fs>ls)
+    //         {
+    //             l--;
+    //             ls+=arr[l];
+    //             c++;
+    //         }
+    //         else //if( fs<ls)
+    //         {
+    //             f++;
+    //             fs+=arr[f];
+    //             c++; 
+    //         }}
+            
+    //     }
+    //     return f;
+    // }
+    public static int equilibriumPoint(long arr[], int n) {
+ 
+        long leftSum = 0;
+        long sum = 0;
+        for(long a: arr) 
+            sum += a;
+        for(int i=0;i<n;i++){
+            sum -= arr[i];
+            if(sum == leftSum)
+                return i+1;
+            leftSum += arr[i];
+        }
+        return -1;
+    }
+}
