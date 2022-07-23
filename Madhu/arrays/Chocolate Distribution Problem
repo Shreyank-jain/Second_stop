@@ -1,0 +1,29 @@
+
+class Solution
+{
+    public long findMinDiff (ArrayList<Integer> a, int n, int m)
+    {
+    //this doesnt work idk why the fuk
+            // your code here
+            // Collections.sort(a);
+            // long s=a.get(m-1)-a.get(0);
+            // for(int i=1;i<n-m;i++)
+            // {
+            //     s=Math.min(a.get(i+m-1)-a.get(i),s);
+                
+            // }
+            
+            // return s;
+            Collections.sort(a);
+            long mindif = a.get(n-1);
+            for(int i=0,j=m-1;j<n;i++, j++)
+            {
+                long curdif=a.get(j)-a.get(i);
+                if(mindif>curdif)
+                {
+                    mindif=curdif;
+                }
+            }
+            return mindif;
+    }
+}
