@@ -1,0 +1,13 @@
+bool isBalanced(Node *root)
+    {
+        //  Your Code here
+        if(!root) return true;
+        if(abs(height(root->left) - height(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right))
+            return true;
+        else return false;
+    }
+    
+    int height(Node* root){
+        if(!root) return 0;
+        return max(height(root->left),height(root->right)) + 1 ;
+    }
