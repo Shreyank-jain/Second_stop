@@ -1,0 +1,16 @@
+ void countt(Node* root, int &total){
+    if(!root) return;
+    if(root->left==NULL && root->right==NULL)   total++;
+    else
+        {  
+            countt(root->left,total);
+            countt(root->right,total);
+        }
+    return;
+}
+int countLeaves(Node* root)
+{
+    int total = 0;
+    countt(root,total);
+    return total;
+}
