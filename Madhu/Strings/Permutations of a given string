@@ -1,0 +1,30 @@
+??? DIDNT UNDERSTAND SHITTT... PLEASE HELPPPP
+
+class Solution {
+    ArrayList<String> list = new ArrayList<String>(); 
+    public List<String> find_permutation(String S) 
+    {
+        // Code here
+        String perm = "";
+        printPerm(S,perm);
+        Collections.sort(list);
+        return list;
+    }
+    
+    public void printPerm(String S, String perm)
+    {
+        if(S.length()==0)
+        {
+            if(!list.contains(perm))
+            {
+                list.add(perm);
+            }
+        }
+        for(int i =0 ; i < S.length();i++)
+        {
+            char curr=S.charAt(i);
+            String newStr=S.substring(0,i)+S.substring(i+1);
+            printPerm(newStr,perm+curr);
+        }
+    }
+}
