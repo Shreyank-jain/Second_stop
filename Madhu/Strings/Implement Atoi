@@ -1,0 +1,10 @@
+class Solution
+{
+    int atoi(String str) {
+	// Your code here
+	try{
+	return (Integer.parseInt(str));}
+	catch(NumberFormatException ex){
+	return -1;}
+    }
+}
