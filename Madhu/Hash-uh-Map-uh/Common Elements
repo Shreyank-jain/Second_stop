@@ -1,0 +1,49 @@
+class Solution{
+    public static ArrayList<Integer> common_element(ArrayList<Integer>v1, ArrayList<Integer>v2)
+    {
+        //Your code here
+        //Collections.sort(v1);
+        // ArrayList <Integer> ar = new ArrayList<>();
+        // HashSet<Integer> hs = new HashSet<>();
+        // for( int i =0 ; i<v2.size(); i++)
+        // {
+        //     hs.add(v2.get(i));
+        // }
+        
+        // for( int j=0 ;j<v1.size();j++)
+        // {
+        //     if(hs.contains(v1.get(j)))
+        //     ar.add(v1.get(j));
+        // }
+        // Collections.sort(ar);
+        // return ar;
+        
+
+  ArrayList<Integer> a = new ArrayList<>();
+       HashMap<Integer,Integer> hm = new HashMap<>();
+      
+      for(int val:v1)
+      {
+          if(hm.containsKey(val))
+          {
+              hm.put(val,hm.get(val)+1);
+          }
+          else
+          {
+              hm.put(val,1);
+          }
+      }
+      
+      for(int val:v2)
+      {
+          if(hm.containsKey(val) && hm.get(val)>0)
+          {
+              a.add(val);
+              hm.put(val,hm.get(val)-1);
+          }
+      }
+      Collections.sort(a);
+      return a;
+
+    }
+}
