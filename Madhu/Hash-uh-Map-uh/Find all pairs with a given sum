@@ -1,0 +1,37 @@
+
+//User function Template for Java
+
+/*
+class pair  {  
+    long first, second;  
+    public pair(long first, long second)  
+    {  
+        this.first = first;  
+        this.second = second;  
+    }  
+}
+*/
+
+class Solution {
+    public pair[] allPairs( long A[], long B[], long N, long M, long X) {
+        // Your code goes here 
+        HashMap < Long, Long> hm = new HashMap<>();
+        //pair pr = new pair();
+        ArrayList<pair> al =  new ArrayList<>();
+        for(long j : A)
+        {
+            hm.put(X-j,j );
+        }
+        Arrays.sort(B);
+       Collections.reverse(Arrays.asList(B));
+        for( int i =0 ; i < M ; i++)
+        {
+            if(hm.containsKey(B[i]))
+            {
+                al.add(new pair(hm.get(B[i]),B[i]));
+            }
+        }
+        pair [] pr = new pair[al.size()];
+        return al.toArray(pr);
+    }
+}
