@@ -1,0 +1,6 @@
+     return 1;
+    }
+    long left = numberOfPaths(m-1,n);
+    long right = numberOfPaths(m,n-1);
+    return left+right;
+}
