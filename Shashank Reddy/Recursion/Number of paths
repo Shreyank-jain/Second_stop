@@ -1,4 +1,7 @@
-     return 1;
+long long  numberOfPaths(int m, int n)
+{
+    if(m==1||n==1){
+        return 1;
     }
     long left = numberOfPaths(m-1,n);
     long right = numberOfPaths(m,n-1);
