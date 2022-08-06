@@ -1,0 +1,27 @@
+class Solution {
+    // public ArrayList<ArrayList<Integer>> fourSum(int[] arr, int k) {
+    //     // code here
+    //     ArrayList<ArrayList<Integer>> 
+        
+    // }
+    public ArrayList<ArrayList<Integer>> fourSum(int[] arr,int k){
+   Set<ArrayList<Integer>> s = new LinkedHashSet<>();
+   Arrays.sort(arr);
+   for (int i=0; i<=arr.length-2; i++) {
+       for (int j=i+1; j<=arr.length-1; j++) {
+           int l=j+1, r=arr.length-1;
+           while (l<r) {
+               if(arr[i]+arr[j]+arr[l]+arr[r] < k){
+                   l++;
+               }else if(arr[i]+arr[j]+arr[l]+arr[r] > k){
+                   r--;
+               } else {
+                   s.add(new ArrayList<>(Arrays.asList(arr[i],arr[j],arr[l],arr[r])));
+                   r--;
+               }
+           }
+       }
+   }
+   return new ArrayList<>(s);
+}
+}
