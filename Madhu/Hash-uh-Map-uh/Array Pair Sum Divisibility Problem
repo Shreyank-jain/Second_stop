@@ -1,0 +1,51 @@
+/ User function Template for Java
+
+
+
+
+----------didnt understand clearly--------------
+
+class Solution {
+    public boolean canPair(int[] nums, int k) {
+        // Code here
+        int count=0;
+        if( nums.length%2!=0) return false;
+        HashMap<Integer,Integer>hm = new HashMap<>();
+        for( int a : nums)
+        {
+            int b= a%k;
+            int c= k-b;
+            if(b==0)
+            c=0;
+            if(hm.containsKey(c))
+            {
+                if(hm.get(c)==1)
+                {
+                    hm.remove(c);
+                }
+                else
+                {
+                    hm.put(c,hm.get(c)-1);
+                }
+                count++;
+                
+            }
+            else
+            {
+                if(hm.containsKey(b))
+                {
+                    hm.put(b,hm.get(b)+1);
+                }
+                else
+                {
+                    hm.put(b,1);
+                }
+            }
+        }
+        if(count ==nums.length/2)
+        return true;
+        
+        return false;
+        
+    }
+}
