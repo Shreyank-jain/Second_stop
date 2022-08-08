@@ -1,0 +1,48 @@
+
+//User function Template for Java
+
+class Solution{
+    //Function to check if two arrays are equal or not.
+    public static boolean check(long A[],long B[],int N)
+    {
+        //Your code here
+        
+        HashMap<Long, Integer> hm = new HashMap<>();
+        for( int i =0 ; i< N ;i++)
+        {
+            if(hm.containsKey(A[i]))
+            {
+                hm.put(A[i],hm.getOrDefault(A[i],0)+1);
+            }
+            else
+            {
+                hm.put(A[i],1);
+            }
+        }
+        HashMap<Long, Integer> hm1 = new HashMap<>();
+        for( int i =0 ; i< N ;i++)
+        {
+            if(hm1.containsKey(B[i]))
+            {
+                hm1.put(B[i],hm1.getOrDefault(B[i],0)+1);
+            }
+            else
+            {
+                hm1.put(B[i],1);
+            }
+        }
+        return (hm.equals(hm1));
+        // for(int i =0 ; i< N ;i++)
+        // {
+        //     if(!hm.containsKey(B[i]))
+        //     return false;
+        // }
+        //     return true;
+        //     if(hm.containsKey(B[i]))
+        //     {
+        //         if
+        //     }
+        // }
+    
+}
+}
