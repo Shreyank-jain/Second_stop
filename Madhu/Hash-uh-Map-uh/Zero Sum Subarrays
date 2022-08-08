@@ -1,0 +1,49 @@
+
+class Solution{
+    //Function to count subarrays with sum equal to 0.
+    public static long findSubarray(long[] arr ,int n) 
+    {
+        //Your code here
+        long sum=0 ;
+        long count =0;
+        HashMap<Long , Integer> hm = new HashMap<>();
+        hm.put(sum,1);
+        for(long i : arr)
+        {
+            sum+=i;
+            if(hm.containsKey(sum))
+            {
+                count+=hm.get(sum);
+                hm.put(sum,hm.get(sum)+1);
+            }
+            else
+            hm.put(sum,1);
+            
+        }
+        return count;
+        
+        // long tot=0;
+        // int j=0 ;
+        // for(int i =j ; i< n ;i++)
+        // {
+        //     if(arr[j]==0)
+        //     count ++;
+        //     j++;
+        //     else
+        //     {
+        //         tot+=arr[j];
+        //         if(tot==0)
+        //         {
+        //             count++;
+        //             tot=0;
+        //             j++;
+        //         }
+                
+        //     }
+        //     if( j=n-1)
+        //     {
+                
+        //     }
+        // }
+    }
+}
