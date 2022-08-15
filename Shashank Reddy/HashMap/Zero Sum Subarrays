@@ -1,0 +1,14 @@
+ll findSubarray(vector<ll> arr, int n ) {
+        ll int count =0 ;
+        ll int sum =0;
+        unordered_map<ll int, ll int> mp;
+        mp.insert(make_pair(0,1));
+        for(ll int i=0;i<n;i++){
+           sum+=arr[i];
+           if(mp.find(sum)!=mp.end() || arr[i]==0){
+               count+=mp[sum];
+           }
+            mp[sum]++;            
+        }
+        return count;
+    }
