@@ -1,0 +1,20 @@
+	int findSwapValues(int A[], int n, int B[], int m)
+	{
+        int sumA=0;
+        int sumB=0;
+        unordered_set<int> s;
+        for(int i=0;i<n;i++){
+            s.insert(2*A[i]);
+            sumA+=A[i];
+        }
+        for(int j=0;j<m;j++){
+            sumB+=B[j];
+        }
+        int diff = sumA-sumB;
+        for(int i=0;i<m;i++){
+            if(s.find(diff+(2*B[i]))!=s.end()){
+                return 1;
+            }
+        }
+        return -1;
+	}
