@@ -1,0 +1,16 @@
+ bool check(vector<ll> A, vector<ll> B, int N) {
+        unordered_map<ll,ll> mp;
+        for(ll i=0;i<N;i++){
+            mp[A[i]]++;
+        }
+        for(ll i=0;i<N;i++){
+            if(mp.find(B[i])!=mp.end()){
+                mp[B[i]]--;
+                if(mp[B[i]] == 0) mp.erase(B[i]);
+            }else {
+                return false;
+            }
+        }
+        if(mp.size() ==0) return true;
+        else return false;
+    }
