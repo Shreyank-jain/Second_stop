@@ -1,0 +1,26 @@
+vector<int> findSpiral(Node *root)
+{
+    vector<int> ans;
+    if(!root) return ans;
+    queue<Node*> q;
+    q.push(root);
+    bool ltr=false;
+    while(!q.empty()){
+        vector<int> v;
+        int qSize = q.size();
+        for(int i=0;i<qSize;i++){
+            Node* temp = q.front();
+            q.pop();
+            v.push_back(temp->data);
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+        }
+        if(!ltr) 
+            reverse(v.begin(),v.end());
+        ltr = !ltr;
+        for(auto it:v){
+            ans.push_back(it);
+        }
+    }
+    return ans;
+}
