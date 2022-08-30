@@ -1,0 +1,28 @@
+bool isCyclic(int V, vector<int> adj[]) {
+        vector<int> visited(V,0);
+        vector<int> visitedDFS(V,0);
+        for(int i=0;i<V;i++){
+            if(!visited[i]){
+                if(check(i,adj,visited,visitedDFS)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    bool check(int curr, vector<int> adj[], vector<int> &visited, vector<int> &visitedDFS){
+        visited[curr] = 1;
+        visitedDFS[curr] = 1;
+        for(auto it:adj[curr]){
+            if(!visited[it]){
+                if(check(it,adj,visited,visitedDFS)){
+                    return true;
+                }
+            }else if(visitedDFS[it]){
+                return true;
+            }
+        }
+        visitedDFS[curr] = 0;
+        return false;
+    }
