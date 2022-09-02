@@ -1,0 +1,29 @@
+class GfG {
+    int minEle = -1;
+    Stack < Integer > s;
+
+    int getMin() {
+        return minEle;
+    }
+
+    int pop() {
+        if (s == null || s.isEmpty())
+            return -1;
+        int ele = s.pop() % 101;
+        if (s.isEmpty())
+            minEle = -1;
+        else
+            minEle = s.peek() / 101;
+        return ele;
+    }
+
+    void push(int x) {
+        if (s == null)
+            s = new Stack < > ();
+        if (minEle == -1)
+            minEle = x;
+        if (x < minEle)
+            minEle = x;
+        s.push(minEle * 101 + x);
+    }
+}
