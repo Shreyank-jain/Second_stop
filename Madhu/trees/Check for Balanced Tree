@@ -1,0 +1,30 @@
+
+class Tree
+{
+    int l =0, r=0;   
+    //Function to check whether a binary tree is balanced or not.
+    int hig (Node root)
+    {
+        if(root==null) return 0;
+        int lh = hig(root.left);
+        // int l = Math.max(lh,l);
+        int rh = hig(root.right);
+        // int r = Math.max(rh,r);
+        return Math.max(lh,rh)+1;
+        // return Math.abs(hig(root.left)-hig(root.right));
+        
+    }
+    boolean isBalanced(Node root)
+    {
+	// Your code here
+// 	if(hig(root)>1) return false;
+// 	else return true;
+        if(root == null) return true;
+        int l = hig(root.left);
+        int r= hig(root.right);
+        
+        if(Math.abs(l-r)>1) return false;
+        else return isBalanced(root.left)&&isBalanced(root.right);
+    }
+}
+
